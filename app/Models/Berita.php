@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Komentar;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Berita extends Model
 {
@@ -13,5 +14,9 @@ class Berita extends Model
     public function getSinospsisAttribute()
     {
         return Str::limit(strip_tags($this->isi), '80', '');
+    }
+    public function komen()
+    {
+        return $this->hasOne(Komentar::class);
     }
 }

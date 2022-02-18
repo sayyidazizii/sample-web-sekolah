@@ -17,7 +17,8 @@ class BeritaFactory extends Factory
         $isi = strip_tags($this->faker->randomHtml(15, 4), $allowTags);
 
         return [
-            'judul' => $this->faker->text(120),
+            'judul' => $this->faker->text(50),
+            'slug' => $this->faker->text(120),
             'foto' => 'sample-image/foto-' . $this->faker->numberBetween('1', '6') . '.jpg',
             'isi' => $isi,
         ];

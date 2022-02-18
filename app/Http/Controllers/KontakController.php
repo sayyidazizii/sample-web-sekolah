@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Kontak;
 use Illuminate\Http\Request;
 
 class KontakController extends Controller
@@ -14,6 +14,9 @@ class KontakController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('kontak');
+        $items = Kontak::all();
+        return view('kontak',[
+            'items'=>$items
+        ]);
     }
 }

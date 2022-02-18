@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\Galeri;
+
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -16,9 +18,11 @@ class GuruController extends Controller
     public function __invoke(Request $request)
     {
         $items = Guru::get();
+        $galeris = Galeri::latest()->get();
 
         return view('guru', [
             'items' => $items,
+            'galeris'=> $galeris,
         ]);
     }
 }
